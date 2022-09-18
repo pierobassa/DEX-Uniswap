@@ -44,13 +44,13 @@ We can add an intermediary node between Factory deployer and log which is the "c
  - output: "address" of the contract and it will become the new input of log
 
 Overview of the CRANQ state machine:
-![alt text](Screenshot1.png "Overview")
+![alt text](./readmeImages/Screenshot1.png "Overview")
 
 Grouping correlated nodes:
-![alt text](Screenshot2.png "Grouped")
+![alt text](./readmeImages/Screenshot2.png "Grouped")
 
 Compile & Deploy Factory:
-![alt text](Screenshot3.png "Overview")
+![alt text](./readmeImages/Screenshot3.png "Overview")
 
 Compile & Deploy Router:
-![alt text](Screenshot4.png "Overview")
+![alt text](./readmeImages/Screenshot4.png "Overview")
