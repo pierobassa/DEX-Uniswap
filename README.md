@@ -113,3 +113,27 @@ Complete overview:
 
 add liquidities node:
 ![alt text](./readmeImages/Screenshot6.png "Add liquidities")
+
+# DEX Front-end
+Project structure will be created using useDApp: https://usedapp.io/
+
+``` bash
+yarn create eth-app ./
+```
+Add the following object under "workspaces" in the packages.json:
+
+``` json
+"resolutions":{
+    "react-error-overlay": "6.0.9" //It fixes a bug regarding auto-updating of the react-app using eth-app
+}
+```
+For custom CSS, Tailwind CDN is used (https://tailwindcss.com/docs/installation/play-cdn)
+
+To run the application:
+```
+npm run react-app:start
+```
+Make sure NODE_OPTIONS=--openssl-legacy-provider
+```
+export NODE_OPTIONS=--openssl-legacy-provider
+```
