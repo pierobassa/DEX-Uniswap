@@ -54,3 +54,62 @@ Compile & Deploy Factory:
 
 Compile & Deploy Router:
 ![alt text](./readmeImages/Screenshot4.png "Overview")
+
+Next step is to provide liquidity:
+
+Add a "liquidities adder" node in CRANQ (used to Add liquidity to multiple pools):
+    - in input we have:
+        - "deadline": Transaction deadline is used to set a time after which a transaction can no longer be executed. This limits the "free option" problem, where Ethereum miners can hold signed transactions and execute them based off market movements. We'll specify the deadline timestamp using another "store" node and specifying as data value: 300 (which is 300 seconds - 5 minutes):
+            - We need to sum the current timestamp with 300 seconds using the "adder" node
+        - "router contract" expects the router address and the router abi. We need to use a "syncer" node to combine those two variables in one object to send to the liquidities adder node input "router contract"
+        - "pairs": the 2 pairs of the liquidity pool. We will use another store node
+        - "credentials" needs information from our "config" node
+        - "to address" will be retrieved from the "config" node too
+
+After deploying some ERC20 Testnet tokens that will be available in liquidity pools we can setup the liquidity pairs:
+Liquidity pairs: we will store the liquidity pairs in another "store" node with value:
+``` json
+//Array of arrays. Each child array has 2 objects representing the pair of tokens in the pool.
+[
+    [
+        {
+            "address": "0x47b9566081ddee5f180e82fd36d60e93d15af96f", //PIERO token https://goerli.etherscan.io/token/0x47b9566081ddee5f180e82fd36d60e93d15af96f
+            "desiredAmount": 1000 
+        },
+        {
+            "address": "ETH",
+            "desiredAmount": 0.001 //1000 testnet PIERO token will initially be worth 0.001 GoerliETH and viceversa
+        }
+    ],
+    [
+        {
+            "address": "0x47b9566081ddee5f180e82fd36d60e93d15af96f", //PIERO token https://goerli.etherscan.io/token/0x47b9566081ddee5f180e82fd36d60e93d15af96f
+            "desiredAmount": 1000 
+        },
+        {
+            "address": "0xF92e1d5e04f944B2Bc07CA58DD1932102c093f80", //ATOM token https://goerli.etherscan.io/token/0xf92e1d5e04f944b2bc07ca58dd1932102c093f80
+            "desiredAmount": 10
+        }
+    ],
+    [
+        {
+            "address": "0xF92e1d5e04f944B2Bc07CA58DD1932102c093f80", //ATOM token https://goerli.etherscan.io/token/0xf92e1d5e04f944b2bc07ca58dd1932102c093f80
+            "desiredAmount": 1000
+        },
+        {
+            "address": "0xB91f927602C19e678eb95DF25f5f0D6dAB887142", //UNI token https://goerli.etherscan.io/token/0xB91f927602C19e678eb95DF25f5f0D6dAB887142
+            "desiredAmount": 500
+        }
+    ]
+]
+```
+Now we can connect the pair store to the "pairs"
+
+Finally, we can deploy everything, all transactions performed on the Goerli testnet can be seen in the history of this address: 
+https://goerli.etherscan.io/address/0xcc9e28840ea61c6bd6bf755ba22709b3da9ee617 (From block 	7628976 to block	7629134)
+
+Complete overview:
+![alt text](./readmeImages/Screenshot5.png "Overview")
+
+add liquidities node:
+![alt text](./readmeImages/Screenshot6.png "Add liquidities")
