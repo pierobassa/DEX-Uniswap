@@ -1,3 +1,7 @@
+export { getRouterInfo } from './getRouterInfo';
+export { getFactoryInfo } from './getFactoryInfo';
+export { getPairsInfo } from './getPairsInfo';
+
 export { 
   getAvailableTokens,
   getCounterpartTokens,

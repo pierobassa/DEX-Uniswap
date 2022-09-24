@@ -6,6 +6,8 @@ import { uniswapLogo } from './assets'
 
 import { Exchange, WalletButton, Loader } from "./components";
 
+import { usePools } from './hooks';
+
 const App = () => {
   const { account } = useEthers(); //Gives access to the metamask account if it is connected 
 
