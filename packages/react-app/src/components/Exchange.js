@@ -8,10 +8,10 @@ import { parseUnits } from 'ethers/lib/utils'
 
 import { ROUTER_ADDRESS } from '../config'
 
-const Exchange = ({}) => {
+const Exchange = ({pools}) => {
   return (
     <div>
-        
+        EXCHANGE
     </div>
   )
 }

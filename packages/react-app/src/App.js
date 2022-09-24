@@ -11,7 +11,10 @@ import { usePools } from './hooks';
 const App = () => {
   const { account } = useEthers(); //Gives access to the metamask account if it is connected 
 
-  const poolsLoading = false;
+  const [loading, pools] = usePools(); //using the hook we created
+
+  console.log("Account: ", account)
+  console.log("Pools: ", pools)
 
   return(
     <div className={styles.container}>
@@ -32,7 +35,7 @@ const App = () => {
               {/* Exchange box */}
               <div className={styles.exchange}> 
                 {account ? (
-                  poolsLoading ? <Loader title="Loading LPs, please wait!"/> : <Exchange />
+                  loading ? <Loader title="Loading LPs, please wait!"/> :  <Exchange pools={pools}/>
                 ) 
                 : 
                 (
@@ -42,7 +45,7 @@ const App = () => {
               <div className="blue_gradient" />
             </div>
           </div>
-        </div>
+        </div>  
       </div>
     </div>
   )

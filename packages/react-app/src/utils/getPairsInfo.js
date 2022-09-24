@@ -5,7 +5,7 @@ export const getPairsInfo = async (pairAddresses, web3) => {
     const pairsInfo = [];
 
     const pairABI = abis.pair;
-    const erc20ABI = abis.erc20;
+    const erc20ABI = abis.erc20.abi;
 
     for(let i = 0; i < pairAddresses.length; i++){
         const pairAddress = pairAddresses[i];
