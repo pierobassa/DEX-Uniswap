@@ -137,3 +137,16 @@ Make sure NODE_OPTIONS=--openssl-legacy-provider
 ```
 export NODE_OPTIONS=--openssl-legacy-provider
 ```
+Router address and provider url need to be specified in the config.js in the root folder. Create the file with the following:
+``` javascript
+import { Goerli } from "@usedapp/core";
+
+export const ROUTER_ADDRESS = "[YOUR ADDRESS HERE]"; 
+
+export const DAPP_CONFIG = {
+  readOnlyChainId: Goerli.chainId,
+  readOnlyUrls: {
+    [Goerli.chainId]: "[YOUR ALCHEMY/INFURA OR ANY RPC PROVIDER URL HERE]",
+  },
+};
+```

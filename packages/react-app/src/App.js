@@ -4,13 +4,19 @@ import { useEthers } from "@usedapp/core";
 import styles from './styles'
 import { uniswapLogo } from './assets'
 
+import { Exchange, WalletButton, Loader } from "./components";
+
 const App = () => {
+  const { account } = useEthers(); //Gives access to the metamask account if it is connected 
+
+  const poolsLoading = false;
+
   return(
     <div className={styles.container}>
       <div className={styles.innerContainer}>
         <header className={styles.header}>
           <img src={uniswapLogo} alt="uniswap logo" className="w-16 h-16 object-contain "/>
-          WalletButton
+          <WalletButton />
         </header>
 
         <div className={styles.exchangeContainer}>
@@ -23,7 +29,13 @@ const App = () => {
               
               {/* Exchange box */}
               <div className={styles.exchange}> 
-
+                {account ? (
+                  poolsLoading ? <Loader title="Loading LPs, please wait!"/> : <Exchange />
+                ) 
+                : 
+                (
+                  <Loader title="Please connect your wallet."/>
+                )}
               </div>
               <div className="blue_gradient" />
             </div>
