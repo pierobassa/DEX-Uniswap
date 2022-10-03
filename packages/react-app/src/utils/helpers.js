@@ -7,6 +7,33 @@ import { useEffect } from "react";
 
 import { ROUTER_ADDRESS } from "../config";
 
+/*
+ ---------- POOLS EXAMPLE ----------------
+  [
+    {
+        "address": "0x75266dd76bE791d87bC9BEe3507BE22FE952d201",
+        "token0Address": "0x47B9566081DDEe5f180e82Fd36D60E93D15AF96f",
+        "token1Address": "0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6",
+        "token0Name": "Piero",
+        "token1Name": "Wrapped Ether"
+    },
+    {
+        "address": "0x9dE6d922cb0d66Ba46e56f2a8a052e63bd1F18e3",
+        "token0Address": "0x47B9566081DDEe5f180e82Fd36D60E93D15AF96f",
+        "token1Address": "0xF92e1d5e04f944B2Bc07CA58DD1932102c093f80",
+        "token0Name": "Piero",
+        "token1Name": "Cosmos"
+    },
+    {
+        "address": "0xd684ca80550481FEe4e9EB666CEFd927c409ef01",
+        "token0Address": "0xB91f927602C19e678eb95DF25f5f0D6dAB887142",
+        "token1Address": "0xF92e1d5e04f944B2Bc07CA58DD1932102c093f80",
+        "token0Name": "Uniswap",
+        "token1Name": "Cosmos"
+    }
+  ]  
+*/
+
 export const getAvailableTokens = (pools) =>
   pools.reduce((prev, curr) => {
     prev[curr.token0Address] = curr.token0Name;
