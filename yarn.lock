@@ -2517,11 +2517,11 @@
   "resolved" "https://registry.npmjs.org/@multiformats/base-x/-/base-x-4.0.1.tgz"
   "version" "4.0.1"
 
-"@my-app/contracts@^1.0.0", "@my-app/contracts@file:/home/piero/DApps/dex/packages/contracts":
+"@my-app/contracts@^1.0.0", "@my-app/contracts@file:/home/piero/DApps/DEX-Uniswap/packages/contracts":
   "resolved" "file:packages/contracts"
   "version" "1.0.0"
 
-"@my-app/react-app@file:/home/piero/DApps/dex/packages/react-app":
+"@my-app/react-app@file:/home/piero/DApps/DEX-Uniswap/packages/react-app":
   "resolved" "file:packages/react-app"
   "version" "1.0.0"
   dependencies:

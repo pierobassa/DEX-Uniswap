@@ -114,6 +114,8 @@ Complete overview:
 add liquidities node:
 ![alt text](./readmeImages/Screenshot6.png "Add liquidities")
 
+Note: You can also import the CRANQ project directly from the "cranq-project" folder. Manage your config information in the "config" storage node once imported.
+
 # DEX Front-end
 Project structure will be created using useDApp: https://usedapp.io/
 
